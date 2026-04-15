@@ -8,7 +8,7 @@ export interface Lead {
   createdAt: any;
 }
 
-export type Industry = "College" | "Hospital" | "Restaurant" | "Cafe" | "Startup";
+export type Industry = "School" | "Startup";
 
 export interface Template {
   id: string;
@@ -17,4 +17,4 @@ export interface Template {
   bodyHTML: string;
 }
 
-export const INDUSTRIES: Industry[] = ["College", "Hospital", "Restaurant", "Cafe", "Startup"];
+export const INDUSTRIES: Industry[] = ["School", "Startup"];

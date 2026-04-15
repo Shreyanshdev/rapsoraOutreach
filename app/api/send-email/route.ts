@@ -16,19 +16,39 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Resend API key not configured' }, { status: 500 });
   }
 
-  const { to, subject, html } = await req.json();
+  const { to, subject, html, customAttachments, includeBrochure } = await req.json();
 
   try {
     await dbConnect();
-    const filePath = path.join(process.cwd(), 'public/rapsora.pdf');
-    let attachments = [];
+
+    // 1. Attach rapsora.pdf only if toggled on
+    let attachments: { filename: string; content: Buffer }[] = [];
     
-    if (fs.existsSync(filePath)) {
-      const fileBuffer = fs.readFileSync(filePath);
-      attachments.push({
-        filename: 'rapsora.pdf',
-        content: fileBuffer,
-      });
+    if (includeBrochure !== false) {
+      const filePath = path.join(process.cwd(), 'public/rapsora.pdf');
+      if (fs.existsSync(filePath)) {
+        const fileBuffer = fs.readFileSync(filePath);
+        attachments.push({
+          filename: 'rapsora.pdf',
+          content: fileBuffer,
+        });
+      }
+    }
+
+    // 2. Merge custom attachments (base64 → Buffer)
+    if (Array.isArray(customAttachments) && customAttachments.length > 0) {
+      for (const att of customAttachments) {
+        if (att.filename && att.content) {
+          // Strip the data URL prefix if present (e.g. "data:application/pdf;base64,...")
+          const base64Data = att.content.includes(',') 
+            ? att.content.split(',')[1] 
+            : att.content;
+          attachments.push({
+            filename: att.filename,
+            content: Buffer.from(base64Data, 'base64'),
+          });
+        }
+      }
     }
 
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
