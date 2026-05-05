@@ -1,85 +1,120 @@
-# RapSora Outreach Platform
+<div align="center">
+  <img src="public/logo.png" alt="RapSora Outreach Logo" width="180" />
+  
+  # RAPSORA OUTREACH
+  ### High-Fidelity Outreach Engine — Records Management — Intelligence Matrix
+  
+  *The ultimate transmission system for professional sales and intelligence operations.*
 
-RapSora is a high-fidelity outreach engine and records management system designed for professional sales and intelligence operations. Built with a "Liquid Glass" aesthetic, it combines powerful core functionality with a premium, responsive user interface.
+  <div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+    <img src="https://img.shields.io/badge/Status-Production--Ready-success?style=for-the-badge" alt="Status" />
+    <img src="https://img.shields.io/badge/Security-Hardened-blue?style=for-the-badge" alt="Security" />
+    <img src="https://img.shields.io/badge/Design-Liquid--Glass-black?style=for-the-badge" alt="Design" />
+  </div>
+</div>
+
+---
+
+## 🛰️ Overview
+**RapSora Outreach** is a sophisticated, high-performance engine designed to streamline professional outreach and lead management. Built with a signature **"Liquid Glass"** aesthetic, it combines military-grade records management with a cinematic user experience.
 
 ## 🚀 Key Systems
 
 ### 1. Cold Outreach Engine
-A high-conversion transmission system that allows for rapid deployment of personalized messages.
-- **Variable Injection**: Automatically replace `[Name]` and `[CompanyName]` tokens.
-- **Real-time Status tracking**: Monitor delivery, opens, and responses.
-- **Secure Integration**: Powered by Resend API and custom SMTP protocols.
+A precision-engineered transmission system for rapid message deployment.
+- **Variable Injection**: Seamlessly swap `[Name]` and `[CompanyName]` tokens in real-time.
+- **Telemetry Tracking**: Monitor delivery status, opens, and responses with granular accuracy.
+- **Resend Integration**: Powered by industrial-grade mail servers for maximum deliverability.
 
 ### 2. High-Fidelity Blueprints
 Advanced email template management with multi-device simulation.
-- **Live Sandbox**: Build and edit HTML templates with instant side-by-side preview.
-- **Responsive Simulation**: Toggle between Desktop, Tablet, and Mobile views to ensure visual integrity.
-- **Blueprint Logic**: Dynamic subject lines and body scripts that adapt to recipient metadata.
+- **Live Sandbox**: Edit HTML templates with instant side-by-side visual feedback.
+- **Device Simulation**: Toggle between Desktop, Tablet, and Mobile views to ensure pixel-perfect delivery.
+- **Logic-Driven Scripts**: Dynamic body content that adapts based on recipient metadata.
 
 ### 3. Intelligence Matrix (Leads)
-Centralized target management for high-value outreach.
-- **Intel Collection**: Rapid entry of Names, Emails, and Entities.
-- **Purge Protocols**: Secure database purging for sensitive lead data.
-- **Search & Filter**: High-speed lookup across massive outreach datasets.
+Centralized target management for high-value sales operations.
+- **Intel Collection**: Rapid entry and classification of names, emails, and entities.
+- **Purge Protocols**: Secure database clearing for sensitive campaign data.
+- **High-Speed Search**: Instant lookup across massive datasets using optimized indexing.
 
 ### 4. Shread Sync (Records)
-A sophisticated custom-sheet system for collaborative data management.
-- **Multi-Sheet Architecture**: Create specialized catalogs for different campaigns (e.g., "Cold Call", "Enterprise Pipeline").
-- **Automatic Logging**: Every entry captures a high-resolution timestamp (`DD MMM YYYY | HH:mm`) automatically.
-- **Core Dump (CSV)**: One-click export of data catalogs for external synchronization and reporting.
+A custom-engineered sheet system for collaborative data management.
+- **Multi-Sheet Architecture**: Specialized catalogs for specific pipelines (e.g., "Enterprise", "Cold Call").
+- **Auto-Logging**: Automatic high-resolution timestamps for every entry.
+- **Core Dump (CSV)**: One-click export for external reporting and CRM synchronization.
 
 ### 5. Corporate Access Control
-Hardened security using environment-based whitelisting.
-- **Identity Verification**: Integrated with NextAuth and Google OAuth.
-- **Secure Gatekeeper**: Only authorized email addresses (managed via `ALLOWED_EMAILS`) can bypass the security intercept.
-- **Security Intercept Page**: High-fidelity "Access Revoked" view for unauthorized attempts.
-
----
-
-## 📂 Architecture Overview
-
-### `/app` (Routing & Layout)
-- **`app/page.tsx`**: The main entry point featuring the Auth Gatekeeper and Landing UI.
-- **`app/api/`**: Serverless route handlers for database transactions and email logic.
-
-### `/components` (UI Modules)
-- **`Dashboard.tsx`**: Performance matrix and high-level statistics.
-- **`Sheets.tsx`**: The core of the Shread Sync records system.
-- **`Skeleton.tsx`**: Liquid shimmer loading states for premium perceived performance.
-- **`Sidebar.tsx`**: Navigation control with active state persistence.
-
-### `/models` (Data Layer)
-- **`Lead.ts`**: Schema for the Intelligence Matrix.
-- **`Sheet.ts` & `SheetRow.ts`**: Dynamic data models supporting custom column structures.
-- **`SentEmail.ts`**: Telemetry and status tracking for outgoing communications.
-
-### `/lib` (Core Infrastructure)
-- **`auth.ts`**: Authentication logic and whitelist adjudication.
-- **`mongodb.ts`**: High-performance database connection pooling.
-- **`templates.ts`**: Engine for variable injection and blueprint defaults.
-
----
-
-## 🛠️ Configuration
-
-The platform requires the following environmental variables in `.env.local`:
-
-```
-MONGODB_URI=        # Database Connection
-GOOGLE_CLIENT_ID=   # OAuth Provider
-GOOGLE_CLIENT_SECRET=
-AUTH_SECRET=        # NextAuth Encryption
-RESEND_API_KEY=     # Email Engine
-ALLOWED_EMAILS=     # Comma-separated whitelist (e.g. info@rapsora.com,...)
-```
+Hardened security using environment-level whitelisting.
+- **Identity Verification**: Hardened integration with Google OAuth and NextAuth.
+- **Gatekeeper Protocol**: Access is restricted to authorized entities via `ALLOWED_EMAILS` validation.
+- **Security Intercept**: Professional-grade "Access Revoked" protocols for unauthorized attempts.
 
 ---
 
 ## ⚡ Tech Stack
 
-- **Framework**: Next.js 15+ (App Router)
-- **Database**: MongoDB with Mongoose
-- **Styling**: Tailwind CSS & Vanilla CSS (Liquid Glass System)
-- **Motion**: Framer Motion
-- **Icons**: Lucide React
-- **Authentication**: NextAuth.js
+- **Framework**: Next.js 15 (App Router / React 19)
+- **Database**: MongoDB & Mongoose (High-concurrency pooling)
+- **Authentication**: NextAuth.js (v5 Beta)
+- **Email Engine**: Resend API
+- **Motion Engine**: Framer Motion (Liquid UI Transitions)
+- **Styling**: Tailwind CSS & CSS-in-JS (Liquid Glass Tokens)
+
+---
+
+## 📂 Project Architecture
+
+```text
+rapsora-outreach/
+├── app/                        # Next.js 15 App Router
+│   ├── api/                    # Serverless API Handlers
+│   │   ├── auth/               # OAuth & Session Logic
+│   │   ├── emails/             # Communication Telemetry
+│   │   ├── leads/              # Intelligence Matrix Operations
+│   │   ├── send-email/         # Transmission Engine
+│   │   ├── sheets/             # Shread Sync Logic
+│   │   └── templates/          # Blueprint Management
+│   ├── globals.css             # Liquid Glass Design Tokens
+│   ├── layout.tsx              # Root Layout & Context
+│   └── page.tsx                # Secure Entry Gate & Landing
+├── components/                 # Premium UI Modules
+│   ├── ui/                     # Atomic UI Elements (Skeleton, etc.)
+│   ├── Dashboard.tsx           # Performance Analytics
+│   ├── Sheets.tsx              # Shread Sync Grid
+│   ├── SendEmail.tsx           # Transmission Interface
+│   ├── Inbox.tsx               # Response Monitoring
+│   ├── Leads.tsx               # Intelligence Matrix View
+│   └── Sidebar.tsx             # Navigation & Persistence
+├── lib/                        # Core Infrastructure
+│   ├── auth.ts                 # Whitelist & Adjudication
+│   ├── mongodb.ts              # Database Connection Pooling
+│   ├── templates.ts            # Variable Injection Logic
+│   └── types.ts                # TypeScript Global Definitions
+├── models/                     # Mongoose Data Models
+│   ├── Lead.ts                 # Target Intelligence Schema
+│   ├── Sheet.ts                # Custom Catalog Schema
+│   ├── SheetRow.ts             # Dynamic Row Schema
+│   └── Template.ts             # Blueprint Schema
+└── public/                     # Brand Assets & Collateral
+```
+
+## 🛠️ Configuration
+
+Configure the following environment variables in `.env.local`:
+
+```env
+MONGODB_URI=        # Database Connection String
+GOOGLE_CLIENT_ID=   # OAuth Provider Client ID
+GOOGLE_CLIENT_SECRET=
+AUTH_SECRET=        # NextAuth Encryption Key
+RESEND_API_KEY=     # Email Engine API Key
+ALLOWED_EMAILS=     # Comma-separated access list
+```
+
+---
+
+<div align="center">
+  <p><b>RapSora Technologies — All Rights Reserved © 2026</b></p>
+  <p><i>Building the future of professional communication.</i></p>
+</div>
